@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-/*Ceci est le page d'administration spécifique à l'admin */
+<!--Ceci est le page d'administration spécifique à l'admin -->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
