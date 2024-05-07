@@ -1,21 +1,38 @@
-Table permettant l’ajout d'articles sur site depuis la page d’administration.
-
-CREATE TABLE `articles` (
-`id` INT(11) NOT NULL AUTO_INCREMENT,
-`titre` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
-`description` TEXT NOT NULL COLLATE 'utf8mb4_general_ci',
-`date_creation` TIMESTAMP NULL DEFAULT current_timestamp(),
-PRIMARY KEY (`id`) USING BTREE
-)ENGINE=InnoDB;
-
-Table pour recueillir les utilisateurs inscrit.
-
-CREATE TABLE `membreinscrit` (
-`id` INT(11) NOT NULL AUTO_INCREMENT,
-`email` VARCHAR(255) NOT NULL COLLATE ,
-`password` VARCHAR(255) NOT NULL COLLATE ,
-`cpassword` VARCHAR(255) NOT NULL COLLATE ,
-PRIMARY KEY (`id`)
-UNIQUE INDEX `email` (`email`)
-)ENGINE=InnoDB;
+Créer une base de donée "espaceadmin" avec les tables suivantes:
+   - Table permettant l'ajout de voitures
+   `id` INT(11) NOT NULL AUTO_INCREMENT,
+	  `prix` DECIMAL(10,2) NOT NULL,
+  	`image` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  `annee` YEAR NOT NULL,
+	  `kilometrage` INT(11) NOT NULL,
+	  `marque` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  `modele` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  `carburant` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	  PRIMARY KEY (`id`) USING BTREE
+ )
+  ENGINE=InnoDB;
+2. Table permettant la modification des horaires
+   CREATE TABLE `horaires_footer` (
+	  `id` INT(11) NOT NULL AUTO_INCREMENT,
+	  `jour_semaine` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  `horaire` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  PRIMARY KEY (`id`) USING BTREE
+  )
+   ENGINE=InnoDB;
+3. Table permettant de receuillir les membres inscrit
+     CREATE TABLE `membre` (
+	   `id` INT(11) NOT NULL AUTO_INCREMENT,
+	   `email` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	   `password` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	    PRIMARY KEY (`id`) USING BTREE
+  )
+ENGINE=InnoDB ;
+4.Table permettant l'ajout de service du garage :
+  CREATE TABLE `servicetable` (
+	`ID` INT(11) NOT NULL AUTO_INCREMENT,
+	`ServiceName` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_general_ci',
+  PRIMARY KEY (`ID`) USING BTREE
+ )
+ENGINE=InnoDB
+;
 
