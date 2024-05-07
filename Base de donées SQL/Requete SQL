@@ -1,4 +1,4 @@
-Créer une base de donée "espaceadmin" avec les tables suivantes:
+Création d'une bsd "espaceadmin" avec les tables suivantes:
    - Table permettant l'ajout de voitures
    `id` INT(11) NOT NULL AUTO_INCREMENT,
 	  `prix` DECIMAL(10,2) NOT NULL,
