@@ -1,5 +1,5 @@
 # ECF
-Voici le github contenant tous mes dossiers de mon projet ECF
+Voici le github contenant mon dossier projet
 
 # Somaire
 1. But du projet.
@@ -58,6 +58,7 @@ Back-end:
     My sql
     PHP 8.2 sous PDO
     PHP mailer
+    MariaDB
 
 # 4: Etape de création de l'administrateur dans le back-office
 
@@ -86,32 +87,56 @@ Vincent Parrot se rediriger vers l'espace d'administration grace à ce compte ad
 
  
 ## Base de données
-1. Créer une base de donée "espaceadmin" avec une table "membre" conteant c'est information CREATE TABLE IF NOT EXISTS `membre` (
-/* Identifiant unique de chaque membre */
-  `id` int NOT NULL AUTO_INCREMENT,
-  /* Champ obligatoire pseudo */
-  `pseudo` text NOT NULL,
-  /* Champ obligatoire mot de passe*/
-  `password` text NOT NULL,
-2. Création de la 2ème table "servicetable" contenant ces informations CREATE TABLE IF NOT EXISTS `servicetable` (
-  `ID` int NOT NULL,
-  `ServiceName` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
+1. Créer une base de donée "espaceadmin" avec les tables suivantes:
+   - Table permettant l'ajout de voitures
+   `id` INT(11) NOT NULL AUTO_INCREMENT,
+	  `prix` DECIMAL(10,2) NOT NULL,
+  	`image` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  `annee` YEAR NOT NULL,
+	  `kilometrage` INT(11) NOT NULL,
+	  `marque` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  `modele` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  `carburant` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	  PRIMARY KEY (`id`) USING BTREE
+ )
+  ENGINE=InnoDB;
+2. Table permettant la modification des horaires
+   CREATE TABLE `horaires_footer` (
+	  `id` INT(11) NOT NULL AUTO_INCREMENT,
+	  `jour_semaine` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  `horaire` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	  PRIMARY KEY (`id`) USING BTREE
+  )
+   ENGINE=InnoDB;
+3. Table permettant de receuillir les membres inscrit
+     CREATE TABLE `membre` (
+	   `id` INT(11) NOT NULL AUTO_INCREMENT,
+	   `email` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	   `password` VARCHAR(255) NOT NULL COLLATE 'latin1_swedish_ci',
+	    PRIMARY KEY (`id`) USING BTREE
+  )
+ENGINE=InnoDB ;
+4.Table permettant l'ajout de service du garage :
+  CREATE TABLE `servicetable` (
+	`ID` INT(11) NOT NULL AUTO_INCREMENT,
+	`ServiceName` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_general_ci',
+  PRIMARY KEY (`ID`) USING BTREE
+ )
+ENGINE=InnoDB
+;
 
 
 ## Exécution
-1. Lancer l'application wamp avec pour nom d'utilisateur root.
-2. Accéder à l'application dans votre navigateur à l'adresse http://localhost/projetconnexion/doc.php .
+1. Installer mariaDB
+2. Modifier les paramètres de session, modifier le nom ou l'IP de l'hote en "localhost", le nom d'uitlisateur en root et le mdp en 'root1234'
+3. Inserer les requetes SQL via l'inviter de commande MySQL Client MariaDB
+4.Installer Wamp pour visionner le site en local.
+5. Mettre le fichier contenat le projet dans "C:\wamp64\www\projetconnexion"
 
 
-## Liste des fonctionallités manquantes 
-- Posibiliter d'ajout de voiture pour les membres à partir de leur espace membre
-- Posibilier pour l'administrateur de modifier les heures du garage
-- le filtre
-- le receuil de témoigage client
 
-# Erreur
-N'ayant pas compris que Phpmyadmin etait en sgbr je l'ai utiliser, mais le code sql est présent dans mon github.
-  
+
+
     
 
 
