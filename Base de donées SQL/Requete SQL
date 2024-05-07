@@ -1,0 +1,21 @@
+Table permettant l’ajout d'articles sur site depuis la page d’administration.
+
+CREATE TABLE `articles` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`titre` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
+`description` TEXT NOT NULL COLLATE 'utf8mb4_general_ci',
+`date_creation` TIMESTAMP NULL DEFAULT current_timestamp(),
+PRIMARY KEY (`id`) USING BTREE
+)ENGINE=InnoDB;
+
+Table pour recueillir les utilisateurs inscrit.
+
+CREATE TABLE `membreinscrit` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`email` VARCHAR(255) NOT NULL COLLATE ,
+`password` VARCHAR(255) NOT NULL COLLATE ,
+`cpassword` VARCHAR(255) NOT NULL COLLATE ,
+PRIMARY KEY (`id`)
+UNIQUE INDEX `email` (`email`)
+)ENGINE=InnoDB;
+
